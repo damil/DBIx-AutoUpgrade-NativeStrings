@@ -1,2 +1,5 @@
 # DBIx-AutoUpgrade-NativeStrings
-Convert Perl native strings to utf8 before sending them to the database
+
+This module intercepts calls to L<DBI> methods for automatically converting Perl native strings
+to utf8 strings before they go to the DBD driver.
+
