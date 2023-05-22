@@ -48,7 +48,7 @@ sub new {
   my $self = {};
   while (my ($option, $details) = each %valid_options) {
     my ($expected_reftype, $default_val) = @$details;
-    my $val = delete %options{$option};
+    my $val = delete $options{$option};
     !$val or (ref $val || 'NOREF') eq $expected_reftype
           or die "$class->new(): '$option' should be a $expected_reftype";
     $val //= $default_val;
@@ -183,7 +183,7 @@ DBIx::AutoUpgrade::NativeStrings - automatically upgrade Perl native strings to 
 =head1 DESCRIPTION
 
 This module intercepts calls to L<DBI> methods for automatically converting Perl native strings
-to utf8 strings before they go to the DBD driver. 
+to utf8 strings before they go to the DBD driver.
 
 There are two situations where it is useful :
 
